@@ -7,7 +7,7 @@ int main()
     float sumTr=0,sumW=0;
     float avgTr,avgW;
     FILE *fptr;
-    fptr=fopen("input(10).txt","r+");
+    fptr=fopen("input10.txt","r+");
 
 	//Taking the process from the file 
     for(x=0;x<10;x++)

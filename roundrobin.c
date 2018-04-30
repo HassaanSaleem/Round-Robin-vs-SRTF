@@ -12,7 +12,7 @@ int main()
 	float sumTr=0,sumW=0;
     float avgTr,avgW;
 	FILE *fptr;
-    fptr=fopen("input(40).txt","r+");
+    fptr=fopen("input40.txt","r+");
 
    //Taking the processes from the file
    for(x=0;x<40;x++)

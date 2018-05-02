@@ -7,15 +7,15 @@ int main()
     int x=0;
     int quantum=0;
     int total=0;
-    int rp = 40;
+    int rp = 10;
     int time=0;
 	float sumTr=0,sumW=0;
     float avgTr,avgW;
 	FILE *fptr;
-    fptr=fopen("input40.txt","r+");
+    fptr=fopen("input10.txt","r+");
 
    //Taking the processes from the file
-   for(x=0;x<40;x++)
+   for(x=0;x<10;x++)
     {
         fscanf(fptr,"%d",&burstTime[x]);
 		printf("\nP%d: %d",x+1,burstTime[x]);
@@ -59,13 +59,13 @@ int main()
 		}
 
         x++;
-        if(x==40)
+        if(x==10)
         {
         	x=0;
         }
 	}
 
-    for(x=0;x<40;x++)
+    for(x=0;x<10;x++)
     {
         turnAroundTime[x]=burstTime[x]+waitingTime[x];
         sumTr+=turnAroundTime[x];//Calculating the sum of the turnaround time
@@ -73,8 +73,8 @@ int main()
     }
 
 	//Calculating the average of waiting time and turnaround time
-    avgTr=sumTr/40;
-	avgW=sumW/40;
+    avgTr=sumTr/10;
+	avgW=sumW/10;
 
     printf("\nAverage Turn Around Time: %.2f\n",avgTr);
     printf("\nAverage Waiting Around Time: %.2f\n",avgW);

@@ -17,6 +17,6 @@ We assume that the arrival time of all process was zero and for Round-Robin sche
 
 
 # Contributors
-Syed Hassaan Saleem
-Ubaid Ul Haq
+Syed Hassaan Saleem,
+Ubaid Ul Haq and
 Syed Afroz Pasha 

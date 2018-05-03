@@ -7,12 +7,12 @@ int main()
     int x=0;
     int quantum=0;
     int total=0;
-    int rp = 10;
+    int rp=27;
     int time=0;
 	float sumTr=0,sumW=0;
     float avgTr,avgW;
 	FILE *fptr;
-    fptr=fopen("input10.txt","r+");
+    fptr=fopen("input.txt","r+");
 
    //Taking the processes from the file
    for(x=0;x<10;x++)

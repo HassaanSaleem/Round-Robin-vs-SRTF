@@ -7,9 +7,9 @@ int main()
     float sumTr=0,sumW=0;
     float avgTr,avgW;
     FILE *fptr;
-    fptr=fopen("input10.txt","r+");
+    fptr=fopen("input.txt","r+");
 
-	//Taking the process from the file 
+	//Taking the process from the file
     for(x=0;x<10;x++)
     {
         fscanf(fptr,"%d",&burstTime[x]);
@@ -17,36 +17,34 @@ int main()
         process[x]=x+1;
     }
 
-	for(x=0;x<10;x++)
+    for (x=1;x<=10-1;x++)
     {
-        pos=x;
-        for(y=x+1;y<10;y++)
+        y=x;
+
+        while (y>0 && burstTime[y-1]>burstTime[y])
         {
-            if(burstTime[y]<burstTime[pos])
-        	{
-        		pos=y;
-			}
-        }
+            temp=burstTime[y];
+            burstTime[y]=burstTime[y-1];
+            burstTime[y-1]=temp;
 
-        temp=burstTime[x];
-        burstTime[x]=burstTime[pos];
-        burstTime[pos]=temp;
+            temp=process[y];
+            process[y]=process[y-1];
+            process[y-1]=temp;
 
-        temp=process[x];
-        process[x]=process[pos];
-        process[pos]=temp;
+            y--;
     }
+  }
 
     waitingTime[0]=0;
 
-	//Calculating sum of the waiting time 
+	//Calculating sum of the waiting time
 	for(x=1;x<10;x++)
     {
         waitingTime[x]=0;
         for(y=0;y<x;y++)
         {
         	waitingTime[x]+=burstTime[y];
-		}    
+		}
 
         sumW+=waitingTime[x];
     }
@@ -54,16 +52,16 @@ int main()
     printf("\nProcess\t| Burst Time\t| Waiting Time\t| Turnaround Time");
     for(x=0;x<10;x++)
     {
-    	//Calculating the sum of turnaround time 
+    	//Calculating the sum of turnaround time
         turnAroundTime[x]=burstTime[x]+waitingTime[x];
         sumTr+=turnAroundTime[x];
         printf("\n%d\t|\t%d\t|\t%d\t|\t%d",process[x],burstTime[x],waitingTime[x],turnAroundTime[x]);
     }
-    
-	//Calculating the averages 
+
+	//Calculating the averages
     avgTr=sumTr/10;
 	avgW=sumW/10;
-	
+
 	printf("\n\nAverage Turnaround Time=%.2f\n",avgTr);
     printf("\nAverage Waiting Time=%.2f\n",avgW);
 }
